@@ -1,0 +1,44 @@
+{% extends 'structure/layout.html.twig' %}
+
+{% block header %} <h1>{{ 'LisTe des articLes'|title }}</h1>
+<h2><a href="{{ path('blog_new') }}">Nouvel article</a></h2>
+{% endblock %}
+
+{% block content %}
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"># Id</th>
+            <th scope="col">Titre du post</th>
+            <th scope="col">Date de création</th>
+            <th scope="col">Liste des tags</th>
+            <th scope="col">Nombres de commentaires</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            {% if post.published == true %}
+            <tr>
+                <th scope="row">{{ post.id }}</th>
+                <td> <a href="{{ path('article_for_blog', {id: post.id}) }}">{{post.title }}</a></td>
+
+                <td>{{ post.createdAt|date('d/m/Y H:i') }}</td>
+                {% for tag in post.tags  %}
+                <td>{{ tag.name }}</td>
+                {% endfor %}
+                <th scope="col">{{ post.comments | length }}</th>
+            </tr>
+            {% endif %}
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+

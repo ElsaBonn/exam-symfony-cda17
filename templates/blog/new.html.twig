@@ -1,0 +1,94 @@
+{% extends 'structure/layout.html.twig' %}
+
+{% block header %} <h1>  Nouveau Post </h1>{% endblock %}
+
+{% block content %}
+
+    <!--Section: Contact v.2-->
+    <div class="card mt-5 mr-3 ml-3 shadow"><section class="mb-4 mr-5 ml-5">
+
+
+
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-9 mb-md-0 mb-5">
+
+                    {{ form_start(form)}}
+                    {{ form_row(form.title, {
+                        label: 'Le titre de votre article',
+                        row_attr: {
+                            class:'mb-3'
+                        },
+                        label_attr:{
+                            class: 'form-control',
+                        },
+                    }) }}
+                    {{ form_row(form.published, {
+                        label: 'Voulez vous publiez votre post?',
+                        row_attr: {
+                            class:'mb-3'
+                        },
+                        label_attr:{
+                            class: 'form-control',
+                        },
+                    }) }}
+                    {{ form_row(form.tags, {
+                        label: 'Les tags associés',
+                        row_attr: {
+                            class:'mb-3'
+                        },
+                        label_attr:{
+                            class: 'form-control',
+                        },
+                    }) }}
+                    {{ form_row(form.content, {
+                        label: 'Votre article ',
+                        row_attr: {
+                            class:'mb-3'
+                        },
+                        label_attr:{
+                            class: 'form-control',
+                        },
+                    }) }}
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                    {{ form_end(form) }}
+
+
+
+
+
+
+                    <div class="text-center text-md-left">
+
+                    </div>
+                    <div class="status"></div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-3 text-center">
+                    <ul class="list-unstyled mb-0">
+                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                            <p>Chemin du fond de l'étang</p>
+                        </li>
+
+                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                            <p>+ 01 234 567 89</p>
+                        </li>
+
+                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                            <p>contact@monesprit.com</p>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+            </div>
+
+        </section>
+    </div>
+
+
+{% endblock %}
+

@@ -6,12 +6,12 @@
     {# Un lien vers l'exercice 5 et son application #}
     <a href="{{ '/batle' }}">Les voir en action !</a>
     {# On lance un dé et on explique à l'utilisateur la chance qu'il a ! #}
-    {% set roll = bestResult(diceThrower.roll(2, 6)) %}
-    {% if roll >= 2 %}
-        Vous avez fait un super lancé ! Félicitations !
-    {% else %}
-        Pas de chance... Vous avez fait {% roll %}
-    {% endif %}
+{#    {% set roll = bestResult(diceThrower.roll(2, 6)) %}#}
+{#    {% if roll >= 2 %}#}
+{#        Vous avez fait un super lancé ! Félicitations !#}
+{#    {% else %}#}
+{#        Pas de chance... Vous avez fait {% roll %}#}
+{#    {% endif %}#}
     <table>
         <tr>
             <th>Id</th>
@@ -22,26 +22,26 @@
             <th>Description</th>
         </tr>
         {# On affiche une ligne par personnage #}
-        {% for characters in character %}
+        {% for character in characters %}
             <tr>
                 <td>
-                    {{ characters.id }}
+                    {{ character.id }}
                 </td>
                 <td>
-                    {{ characters.name }}
+                    {{ character.name }}
                 </td>
                 <td>
-                    {{ characters.strength }}
+                    {{ character.strength }}
                 </td>
                 <td>
-                    {{ characters.defense }}
+                    {{ character.defense }}
                 </td>
                 <td>
-                    {{ characters.healhtPonit }}
+                    {{ character.healthPoint }}
                 </td>
                 <td>
                     {# afficher des sauts de ligne dans la description #}
-                    {{ nl2br(characters.description) }}
+                    {{ character.description|nl2br }}
                 </td>
             </tr>
         {% endfor %}
